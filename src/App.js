@@ -3,6 +3,7 @@ import { Navbar } from "./components/Navbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SignInForm from "./components/SignInForm";
 import SignUpForm from "./components/SignUpForm";
+// import { Showcase } from "./components/Showcase";
 import HomePage from "./components/HomePage";
 import "./App.css"
 
