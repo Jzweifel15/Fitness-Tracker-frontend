@@ -1,5 +1,6 @@
 import React from "react";
 import WorkoutTable from "./WorkoutTable";
+import MealTable from "./MealTable";
 
 class HomePage extends React.Component {
   render() {
@@ -10,7 +11,7 @@ class HomePage extends React.Component {
           <WorkoutTable />
         </div>
         <div className="meal-tracker">
-          {/* Meal Tracker Component will go here */}
+          <MealTable />
         </div>
         <div className="bmi-tracker">
           {/* BMI Tracker Component will go here */}

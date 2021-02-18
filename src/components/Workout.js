@@ -4,7 +4,7 @@ export const Workout = (props) => {
   return (
     <React.Fragment>
       <tr>
-        <td><strong>{ props.exercise }</strong></td>
+        <td>{ props.exercise }</td>
         <td>{ props.numSets }</td>
         <td>{ props.numReps }</td>
       </tr>

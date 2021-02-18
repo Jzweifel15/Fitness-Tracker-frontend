@@ -1,5 +1,6 @@
 import React from "react";
 import { Workout } from "./Workout";
+import "../styles/WorkoutTable.css";
 
 class WorkoutTable extends React.Component {
   constructor(props) {
@@ -25,9 +26,9 @@ class WorkoutTable extends React.Component {
       <table className="exercises-table">
         <thead>
           <tr>
-            <th>Exercises</th>
-            <th>Sets</th>
-            <th>Reps</th>
+            <td><strong>Exercises</strong></td>
+            <td><strong>Sets</strong></td>
+            <td><strong>Reps</strong></td>
           </tr>
         </thead>
         <tbody>
@@ -37,6 +38,11 @@ class WorkoutTable extends React.Component {
             )
           }
         </tbody>
+        <tr>
+          <td>
+            <button className="btn">+ Add</button>
+          </td>
+        </tr>
       </table>
     )
   }
