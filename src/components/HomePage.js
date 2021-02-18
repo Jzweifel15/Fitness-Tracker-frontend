@@ -1,6 +1,7 @@
 import React from "react";
 import { WorkoutTable } from "./WorkoutTable";
 import { MealTable } from "./MealTable";
+import { BMIContainer } from "./BMIContainer";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -40,15 +41,25 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className="homepage-container">
-        <h1>Your Homepage</h1>
-        <div className="workout-tracker">
-          <WorkoutTable exercises={ this.state.exercises } />
+        <h1>Welcome Back To Your Homepage</h1>
+        <div className="top-row">
+          <div className="workout-tracker">
+            <h3>Today's Workouts</h3>
+            <WorkoutTable exercises={ this.state.exercises } />
+          </div>
+          <div className="meal-tracker">
+            <h3>Today's Meals</h3>
+            <MealTable meals={ this.state.meals } />
+          </div>
         </div>
-        <div className="meal-tracker">
-          <MealTable meals={ this.state.meals } />
-        </div>
-        <div className="bmi-tracker">
-          {/* BMI Tracker Component will go here */}
+        <div className="bottom-row">
+          <h3>Your Body Mass Index</h3>
+          <div className="bmi-tracker">
+            <BMIContainer height={ this.state.height } weight={ this.state.weight } />
+          </div> 
+          <div className="bmi-graph">
+            {/* BMI Line Graph Component */}
+          </div>
         </div>
       </div>
     )
