@@ -1,7 +1,7 @@
 import React from "react";
-import { WorkoutTable } from "./WorkoutTable";
-import { MealTable } from "./MealTable";
-import { BMIContainer } from "./BMIContainer";
+import WorkoutTable from "./WorkoutTable";
+import MealTable from "./MealTable";
+import BMIContainer from "./BMIContainer";
 
 class HomePage extends React.Component {
   constructor(props) {
