@@ -9,12 +9,6 @@ class SignInForm extends React.Component {
     fetchUsers();
   }
 
-  updateFormValue = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
-
   handleSubmit = (event) => {
     event.preventDefault();
   }
@@ -44,7 +38,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    FindAccount: () => dispatch({ type: "FIND_ACCOUNT" })
+    findAccount: () => dispatch({ type: "FIND_ACCOUNT" })
   }
 }
 

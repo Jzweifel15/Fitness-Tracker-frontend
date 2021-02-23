@@ -1,4 +1,6 @@
 import { combineReducers } from "redux";
+import * as actions from "../store/actionTypes";
+// import { cuid } from "cuid";
 
 export const rootReducer = combineReducers({
   user: usersReducer,
@@ -7,18 +9,18 @@ export const rootReducer = combineReducers({
   bmi: bmiReducer
 });
 
-function usersReducer(state = {
-  name: "",
-  weight: 0,
-  height: 0,
-  gender: "",
-  email: "" 
-}, action) {
+function usersReducer(state = [], action) {
   switch(action.type) {
-    case "CREATE_ACCOUNT":
-      // create the new user's account for signing up
-    case "FIND_ACCOUNT":
-      // find the user's account for signing in
+    case actions.CREATE_ACCOUNT:
+      return {
+        name: action.payload.name,
+        weight: action.payload.weight,
+        height: action.payload.height,
+        gender: action.payload.gender,
+        email: action.payload.email
+      }
+    case actions.FIND_ACCOUNT:
+      return state.filter(user => user.email === action.payload.email)
     default: 
       return state;
   }
@@ -26,11 +28,11 @@ function usersReducer(state = {
 
 function exercisesReducer(state = [], action) {
   switch(action.type) {
-    case "ADD_EXERCISE":
+    case actions.ADD_EXERCISE:
       return [...state, action.exercise];
-    case "EDIT_EXERCISE":
+    case actions.EDIT_EXERCISE:
       // return a state object with the same number of exercises, but one exercise has been changed
-    case "REMOVE_EXERCISE":
+    case actions.REMOVE_EXERCISE:
       let idx = state.exercises.findIndex(exercise => exercise.id === action.id);
       return [...state.exercises.slice(0, idx), ...state.exercises.slice(idx + 1)];
     default:
@@ -40,11 +42,11 @@ function exercisesReducer(state = [], action) {
 
 function mealsReducer(state = [], action) {
   switch(action.type) {
-    case "ADD_MEAL":
+    case actions.ADD_MEAL:
       return [...state.meals, action.meal];
-    case "EDIT_MEAL":
+    case actions.EDIT_MEAL:
       // return a state object with the same number of meals, but one meal has been changed
-    case "REMOVE_MEAL":
+    case actions.REMOVE_MEAL:
       let idx = state.meals.findIndex(meal => meal.id === action.id);
       return [...state.meals.slice(0, idx), ...state.meals.slice(idx + 1)];
     default:
@@ -57,7 +59,7 @@ function bmiReducer(state = {
   height: 0,
 }, action) {
   switch(action.type) {
-    case "EDIT_BMI":
+    case actions.EDIT_BMI:
       // return a state object with the bmi edited
     default: 
       return state;
