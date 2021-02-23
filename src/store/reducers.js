@@ -1,81 +1,42 @@
-export const rootReducer = () => {
-  // Main reducer for combining multiple reducers together
-}
+import { combineReducers } from "redux";
 
-function createStore(reducer) {
-  let state;
+export const rootReducer = combineReducers({
+  exercises: exercisesReducer,
+  meals: mealsReducer,
+  bmi: bmiReducer
+});
 
-  function dispatch(action) {
-    // if (action.type === "ADD_EXERCISE" || 
-    //     action.type === "EDIT_EXERCISE" || 
-    //     action.type === "DELETE_EXERCISE") {
-    //   state = exercisesReducer(state, action);
-    // }
-    // else {
-    //   state = mealsReducer(state, action);
-    // }
-    state = reducer(state, action);
-  
-    return state;
-  }
-
-  function getState() {
-    return state;
-  }
-
-  return { dispatch, getState };
-}
-
-// let store = createStore();
-// store.dispatch({ type: "..." });
-
-function exercisesReducer(state = {
-  name: "",
-  weight: 0,
-  height: 0,
-  gender: "",
-  exercises: [],
-  meals: []
-}, action) {
+function exercisesReducer(state = [], action) {
   switch(action.type) {
     case "ADD_EXERCISE":
-      // return a state object with a new exercise added
+      return [...state, action.exercise];
     case "EDIT_EXERCISE":
       // return a state object with the same number of exercises, but one exercise has been changed
-    case "DELETE_EXERCISE":
-      // return a state object with an exercise deleted
+    case "REMOVE_EXERCISE":
+      let idx = state.exercises.findIndex(exercise => exercise.id === action.id);
+      return [...state.exercises.slice(0, idx), ...state.exercises.slice(idx + 1)];
     default:
       return state;
   }
 }
 
-function mealsReducer(state = {
-  name: "",
-  weight: 0,
-  height: 0,
-  gender: "",
-  exercises: [],
-  meals: []
-}, action) {
+function mealsReducer(state = [], action) {
   switch(action.type) {
     case "ADD_MEAL":
-      // return a state object with a new meal added
+      return [...state.meals, action.meal];
     case "EDIT_MEAL":
       // return a state object with the same number of meals, but one meal has been changed
-    case "DELETE_MEAL":
-      // return a state object with a meal deleted
+    case "REMOVE_MEAL":
+      let idx = state.meals.findIndex(meal => meal.id === action.id);
+      return [...state.meals.slice(0, idx), ...state.meals.slice(idx + 1)];
     default:
       return state;
   }
 }
 
 function bmiReducer(state = {
-  name: "",
   weight: 0,
   height: 0,
-  gender: "",
-  exercises: [],
-  meals: []
 }, action) {
   switch(action.type) {
     case "EDIT_BMI":

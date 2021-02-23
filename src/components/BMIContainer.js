@@ -10,7 +10,7 @@ class BMIContainer extends React.Component {
         <div>
           <BMIForm height={ this.props.height } weight={ this.props.weight } />
         </div>
-        <div>BMI = ...</div>
+        <div>BMI = { Math.round((this.props.weight * 0.454) / ((this.props.height * 0.0254) ** 2)) }</div>
       </div>
     ) 
   }
@@ -26,11 +26,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    editBMI: () => dispatch({ type: "EDIT_BMI" })
+    editBMI: (weight, height) => dispatch({ type: "EDIT_BMI" })
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BMIContainer);
+export default BMIContainer;
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(BMIContainer);

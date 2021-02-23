@@ -42,11 +42,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addMeal: () => dispatch({ type: "ADD_MEAL" }),
     editMeal: () => dispatch({ type: "EDIT_MEAL" }),
-    deleteMeal: () => dispatch({ type: "DELETE_MEAL" })
+    removeMeal: () => dispatch({ type: "REMOVE_MEAL" })
   }
 }
 
-export default connect(
-mapStateToProps,
-mapDispatchToProps
-)(MealTable);
+export default MealTable;
+// export default connect(
+// mapStateToProps,
+// mapDispatchToProps
+// )(MealTable);

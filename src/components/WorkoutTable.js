@@ -42,11 +42,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addExercise: () => dispatch({ type: "ADD_EXERCISE" }),
     editExercise: () => dispatch({ type: "EDIT_EXERCISE" }),
-    deleteExercise: () => dispatch({ type: "DELETE_EXERCISE" })
+    removeExercise: () => dispatch({ type: "REMOVE_EXERCISE" })
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(WorkoutTable);
+export default WorkoutTable;
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(WorkoutTable);
