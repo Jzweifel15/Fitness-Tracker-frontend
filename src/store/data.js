@@ -13,6 +13,11 @@ export const data = {
       name: "Dumbell Flys",
       numSets: 5,
       numReps: 15
+    },
+    {
+      name: "Push Ups",
+      numSets: 4,
+      numReps: 20
     }
   ],
   meals: [

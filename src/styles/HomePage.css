@@ -8,14 +8,20 @@
 }
 
 .homepage-container .top-row {
-  height: 25vh;
   align-items: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 .homepage-container .bottom-row {
   border: 2px solid orangered;
-  height: 25vh;
   align-items: center;
+}
+
+.bottom-row img {
+  width: 75%;
+  height: 75%;
+  border: 2px solid pink;
 }
 
 .homepage-container .top-row,
