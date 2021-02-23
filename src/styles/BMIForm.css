@@ -1,4 +1,43 @@
 .bmi-form {
-  border: 2px solid purple;
-  width: 50%;
+  width: 550px;
+  height: 300px;
+  color: #000;
+  background: #f6f6f6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+}
+
+.bmi-form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.bmi-form-control label {
+  font-size: 1.25rem;
+  margin-top: 25px;
+  margin-left: 60px;
+}
+
+.bmi-form-control input {
+  width: 75%;
+  height: 35px;
+  font-size: 1.05rem;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.bmi-form input[type="submit"] {
+  border: 1px solid #00c2ff;
+  background-color: #00c2ff;
+  color: #fff;
+  font-weight: 600;
+  width: 115px;
+  height: 40px;
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 30px;
+  margin-left: 210px;
 }

@@ -3,7 +3,7 @@ import "../styles/BMIForm.css";
 
 export const BMIForm = (props) => {
   return (
-    <React.Fragment>
+    <div>
       <form className="bmi-form">
         <div className="bmi-form-control">
           <label>Height (in.)</label>
@@ -15,6 +15,6 @@ export const BMIForm = (props) => {
         </div>
         <input type="submit" value="Calculate" />
       </form>
-    </React.Fragment>
+    </div>
   )
 }

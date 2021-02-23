@@ -20,7 +20,7 @@ class HomePage extends React.Component {
             <MealTable meals={ data.meals } />
           </div>
         </div>
-        <h3>Your Body Mass Index</h3>
+        <h3 className="bottom-row-label">Your Body Mass Index</h3>
         <div className="bottom-row">
           <div className="bmi-tracker">
             <BMIContainer height={ data.height } weight={ data.weight } />
