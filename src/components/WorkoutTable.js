@@ -4,31 +4,65 @@ import { connect } from "react-redux";
 import "../styles/WorkoutTable.css";
 
 class WorkoutTable extends React.Component {
+
   render() {
     return (
-      <table className="exercises-table">
-        <thead>
-          <tr>
-            <td><strong>Exercises</strong></td>
-            <td><strong>Sets</strong></td>
-            <td><strong>Reps</strong></td>
-          </tr>
-        </thead>
-        <tbody>
+      <div className="wrapper">
+        <div className="table">
+          <div className="row-header">
+            <div className="cell">
+              Exercises
+            </div>
+            <div className="cell">
+              Sets
+            </div>
+            <div className="cell">
+              Reps
+            </div>
+            <div className="cell">
+              Done
+            </div>
+            <div className="cell"></div>
+            <div className="cell"></div>
+          </div>
           {
             this.props.exercises.map(exercise => 
-              <Workout exercise={ exercise.name } numSets={ exercise.numSets } numReps={ exercise.numReps } />   
+              <Workout exercise={ exercise.name }
+                numSets={ exercise.numSets } 
+                numReps={ exercise.numReps } />
             )
           }
-        </tbody>
-        <tr>
-          <td>
-            <button className="btn">+ Add</button>
-          </td>
-        </tr>
-      </table>
+          <div className="btn">+ Add</div>
+        </div>
+      </div>
     )
   }
+
+  // render() {
+  //   return (
+  //     <table className="exercises-table">
+  //       <thead>
+  //         <tr>
+  //           <td><strong>Exercises</strong></td>
+  //           <td><strong>Sets</strong></td>
+  //           <td><strong>Reps</strong></td>
+  //         </tr>
+  //       </thead>
+  //       <tbody>
+  //         {
+  //           this.props.exercises.map(exercise => 
+  //             <Workout exercise={ exercise.name } numSets={ exercise.numSets } numReps={ exercise.numReps } />   
+  //           )
+  //         }
+  //       </tbody>
+  //       <tr>
+  //         <td>
+  //           <button className="btn">+ Add</button>
+  //         </td>
+  //       </tr>
+  //     </table>
+  //   )
+  // }
 }
 
 const mapStateToProps = (state) => {

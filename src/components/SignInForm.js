@@ -1,13 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
+import { fetchUsers } from "../store/fetchActions";
 import "../styles/SignInForm.css";
 
 class SignInForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: ""
-    }
+
+  componentDidMount() {
+    fetchUsers();
   }
 
   updateFormValue = (event) => {
@@ -18,7 +17,6 @@ class SignInForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
   }
 
   render() {
@@ -29,12 +27,7 @@ class SignInForm extends React.Component {
           <div className="form-control">
             <label className="input-label">Email</label>
             <input type="email" name="email" 
-              value={ this.state.email } onChange={ this.updateFormValue } />
-          </div>
-          <div className="form-control">
-            <label className="input-label">Password</label>
-            <input type="password" name="password" 
-              value={ this.state.password } onChange={ this.updateFormValue } />
+              value={ this.props.email } onChange={ this.updateFormValue } />
           </div>
           <input type="submit" value="Sign In" />
         </form>
@@ -43,4 +36,19 @@ class SignInForm extends React.Component {
   }
 }
 
-export default SignInForm;
+const mapStateToProps = (state) => {
+  return {
+    email: state.email
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    FindAccount: () => dispatch({ type: "FIND_ACCOUNT" })
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignInForm);

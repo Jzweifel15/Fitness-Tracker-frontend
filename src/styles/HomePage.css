@@ -1,0 +1,35 @@
+.homepage-container {
+  border: 2px solid #0f0;
+}
+
+.homepage-container h1 {
+  margin-left: 50px;
+  margin-bottom: 25px;
+}
+
+.homepage-container .top-row {
+  height: 25vh;
+  align-items: center;
+}
+
+.homepage-container .bottom-row {
+  border: 2px solid orangered;
+  height: 25vh;
+  align-items: center;
+}
+
+.homepage-container .top-row,
+.homepage-container .bottom-row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.top-row .workout-tracker,
+.top-row .meal-tracker {
+  width: 750px;
+}
+
+.bottom-row .bmi-tracker,
+.bottom-row .bmi-graph {
+  width: 750px;
+}

@@ -1,19 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 import "../styles/SignUpForm.css";
 
 class SignUpForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      weight: "",
-      height: "",
-      gender: "",
-      email: "",
-      password: ""
-    }
-  }
-
   updateFormValue = (event) => {
     this.setState({
       [event.target.name]: event.target.value
@@ -22,7 +11,6 @@ class SignUpForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
   }
 
   render() {
@@ -33,32 +21,27 @@ class SignUpForm extends React.Component {
           <div className="form-control">
             <label className="input-label">Name</label>
             <input type="text" name="name" 
-              value={ this.state.name } onChange={ this.updateFormValue } />
+              value={ this.props.name } onChange={ this.updateFormValue } />
           </div>
           <div className="form-control">
             <label className="input-label">Weight (in lbs.)</label>
             <input type="text" name="weight" 
-              value={ this.state.weight } onChange={ this.updateFormValue } />
+              value={ this.props.weight } onChange={ this.updateFormValue } />
           </div>
           <div className="form-control">
             <label className="input-label">Height (in ft.)</label>
             <input type="text" name="height" 
-              value={ this.state.height } onChange={ this.updateFormValue } />
+              value={ this.props.height } onChange={ this.updateFormValue } />
           </div>
           <div className="form-control">
             <label className="input-label">Gender</label>
             <input type="text" name="gender" 
-              value={ this.state.gender } onChange={ this.updateFormValue } />
+              value={ this.props.gender } onChange={ this.updateFormValue } />
           </div>
           <div className="form-control">
             <label className="input-label">Email</label>
             <input type="email" name="email" 
-              value={ this.state.email } onChange={ this.updateFormValue } />
-          </div>
-          <div className="form-control">
-            <label className="input-label">Password</label>
-            <input type="password" name="password" 
-              value={ this.state.password } onChange={ this.updateFormValue } />
+              value={ this.props.email } onChange={ this.updateFormValue } />
           </div>
           <input type="submit" value="Create Account" />
         </form>
@@ -67,4 +50,17 @@ class SignUpForm extends React.Component {
   }
 }
 
-export default SignUpForm;
+const mapStateToProps = (state) => {
+  return state;
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createAccount: () => dispatch({ type: "CREATE_ACCOUNT" })
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignUpForm);

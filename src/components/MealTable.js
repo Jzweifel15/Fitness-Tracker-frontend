@@ -6,27 +6,31 @@ import "../styles/MealTable.css";
 class MealTable extends React.Component {
   render() {
     return (
-      <table className="meals-table">
-        <thead>
-          <tr>
-            <td><strong>Meals</strong></td>
-            <td><strong>Servings</strong></td>
-            <td><strong>Calories</strong></td>
-          </tr>
-        </thead>
-        <tbody>
+      <div className="wrapper">
+        <div className="table">
+          <div className="row-header">
+            <div className="cell">
+              Meals
+            </div>
+            <div className="cell">
+              Servings
+            </div>
+            <div className="cell">
+              Calories
+            </div>
+            <div className="cell"></div>
+            <div className="cell"></div>
+          </div>
           {
             this.props.meals.map(meal => 
-              <Meal meal={ meal.name } numServings={ meal.numServings } calories={ meal.calories } />  
+              <Meal meal={ meal.name }
+                numServings={ meal.numServings } 
+                calories={ meal.calories } />
             )
           }
-        </tbody>
-        <tr>
-          <td>
-            <button className="btn">+ Add</button>
-          </td>
-        </tr>
-      </table>
+          <div className="btn">+ Add</div>
+        </div>
+      </div>
     )
   }
 }

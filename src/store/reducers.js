@@ -1,10 +1,28 @@
 import { combineReducers } from "redux";
 
 export const rootReducer = combineReducers({
+  user: usersReducer,
   exercises: exercisesReducer,
   meals: mealsReducer,
   bmi: bmiReducer
 });
+
+function usersReducer(state = {
+  name: "",
+  weight: 0,
+  height: 0,
+  gender: "",
+  email: "" 
+}, action) {
+  switch(action.type) {
+    case "CREATE_ACCOUNT":
+      // create the new user's account for signing up
+    case "FIND_ACCOUNT":
+      // find the user's account for signing in
+    default: 
+      return state;
+  }
+}
 
 function exercisesReducer(state = [], action) {
   switch(action.type) {
