@@ -1,5 +1,6 @@
 import React from "react";
 import { Workout } from "./Workout";
+import { Link } from "react-router-dom";
 import "../styles/WorkoutTable.css";
 
 class WorkoutTable extends React.Component {
@@ -31,7 +32,9 @@ class WorkoutTable extends React.Component {
                 numReps={ exercise.numReps } />
             )
           }
-          <div className="btn">+ Add</div>
+          <div className="btn">
+            <Link to="/new/exercise">+ Add</Link>
+          </div>
         </div>
       </div>
     )

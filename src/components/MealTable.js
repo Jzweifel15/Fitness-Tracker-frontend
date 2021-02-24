@@ -1,5 +1,6 @@
 import React from "react";
 import { Meal } from "./Meal";
+import { Link } from "react-router-dom";
 import "../styles/MealTable.css";
 
 class MealTable extends React.Component {
@@ -27,7 +28,9 @@ class MealTable extends React.Component {
                 calories={ meal.calories } />
             )
           }
-          <div className="btn">+ Add</div>
+          <div className="btn">
+            <Link to="/new/meal">+ Add</Link>
+          </div>
         </div>
       </div>
     )

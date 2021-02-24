@@ -1,0 +1,49 @@
+.exercise-form-container {
+  width: 100%;
+  height: 600px;
+}
+
+.exercise-form-container h2 {
+  text-align: center;
+  margin: 25px 0;
+  font-size: 1.9rem;
+}
+
+.exercise-form {
+  width: 75%;
+  margin: auto;
+}
+
+.exercise-form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.exercise-form-control label {
+  margin: 25px 0 5px 0;
+  font-size: 1.75rem;
+}
+
+.exercise-form-control input[type="text"] {
+  font-size: 1.5rem;
+  padding: 5px;
+}
+
+.exercise-form-submit {
+  border: 1px solid #00c2ff;
+  background-color: #00c2ff;
+  color: #fff;
+  font-weight: 600;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.25rem;
+  margin-top: 75px;
+  margin-bottom: 15px;
+  margin-left: 525px;
+}
+
+.exercise-form-submit:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
