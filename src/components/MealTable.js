@@ -1,6 +1,5 @@
 import React from "react";
 import { Meal } from "./Meal";
-import { connect } from "react-redux";
 import "../styles/MealTable.css";
 
 class MealTable extends React.Component {
@@ -23,7 +22,7 @@ class MealTable extends React.Component {
           </div>
           {
             this.props.meals.map(meal => 
-              <Meal meal={ meal.name }
+              <Meal key={ meal.name } meal={ meal.name }
                 numServings={ meal.numServings } 
                 calories={ meal.calories } />
             )
@@ -35,23 +34,4 @@ class MealTable extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    ...state,
-    meals: [...state.meals]
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addMeal: () => dispatch({ type: "ADD_MEAL" }),
-    editMeal: () => dispatch({ type: "EDIT_MEAL" }),
-    removeMeal: () => dispatch({ type: "REMOVE_MEAL" })
-  }
-}
-
 export default MealTable;
-// export default connect(
-// mapStateToProps,
-// mapDispatchToProps
-// )(MealTable);

@@ -2,28 +2,29 @@ import React from "react";
 import WorkoutTable from "./WorkoutTable";
 import MealTable from "./MealTable";
 import BMIContainer from "./BMIContainer";
-import { data } from "../store/data";
+// import { data } from "../store/data";
+import { connect } from "react-redux";
 import "../styles/HomePage.css";
 
 class HomePage extends React.Component {
   render() {
     return (
       <div className="homepage-container">
-        <h1>Welcome Back, { data.name }</h1>
+        <h1>Welcome Back, { this.props.user.name }</h1>
         <div className="top-row">
           <div className="workout-tracker">
             <h3>Today's Workouts</h3>
-            <WorkoutTable exercises={ data.exercises } />
+            <WorkoutTable exercises={ this.props.exercises } />
           </div>
           <div className="meal-tracker">
             <h3>Today's Meals</h3>
-            <MealTable meals={ data.meals } />
+            <MealTable meals={ this.props.meals } />
           </div>
         </div>
         <h3 className="bottom-row-label">Your Body Mass Index</h3>
         <div className="bottom-row">
           <div className="bmi-tracker">
-            <BMIContainer height={ data.height } weight={ data.weight } />
+            <BMIContainer height={ this.props.user.height } weight={ this.props.user.weight } />
           </div> 
           <div className="bmi-graph">
             {/* BMI Line Graph Component */}
@@ -36,4 +37,13 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+    exercises: state.exercises,
+    meals: state.meals,
+    bmi: state.bmi
+  }
+}
+
+export default connect(mapStateToProps)(HomePage);

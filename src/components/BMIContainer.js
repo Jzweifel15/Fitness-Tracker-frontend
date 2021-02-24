@@ -1,6 +1,5 @@
 import React from "react";
-import { BMIForm } from "./BMIForm";
-import { connect } from "react-redux";
+import BMIForm from "./BMIForm";
 import "../styles/BMIContainer.css";
 
 class BMIContainer extends React.Component {
@@ -16,22 +15,4 @@ class BMIContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    ...state,
-    weight: state.weight,
-    height: state.height
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    editBMI: (weight, height) => dispatch({ type: "EDIT_BMI" })
-  }
-}
-
 export default BMIContainer;
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(BMIContainer);
