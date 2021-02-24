@@ -31,6 +31,7 @@
 
 .bmi-form input[type="submit"] {
   border: 1px solid #00c2ff;
+  border-radius: 5px;
   background-color: #00c2ff;
   color: #fff;
   font-weight: 600;
@@ -40,4 +41,9 @@
   font-size: 1rem;
   margin-top: 30px;
   margin-left: 210px;
+}
+
+.bmi-form input[type="submit"]:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }

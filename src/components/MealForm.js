@@ -47,6 +47,7 @@ class MealForm extends React.Component {
               onChange={ this.handleChange } />
           </div>
           <Link to="/"><input className="meal-form-submit" type="submit" value="Add Meal" /></Link>
+          <Link to="/"><button className="meal-form-cancel">Cancel</button></Link>
         </form>
       </div>
     )

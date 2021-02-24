@@ -49,6 +49,7 @@ class ExerciseForm extends React.Component {
           <Link to="/">
             <input className="exercise-form-submit" type="submit" value="Add Exercise" />
           </Link>
+          <Link to="/"><button className="exercise-form-cancel">Cancel</button></Link>
         </form>
       </div>
     )

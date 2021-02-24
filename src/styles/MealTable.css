@@ -40,6 +40,7 @@
 
 .btn {
   border: 1px solid #00c2ff;
+  border-radius: 5px;
   background-color: #00c2ff;
   color: #fff;
   font-weight: 600;
@@ -60,6 +61,7 @@
   color: #fff;
   font-weight: 600;
   text-align: center;
+  border-radius: 5px;
 }
 
 .cell .edit-btn {
@@ -72,10 +74,9 @@
   border: 2px solid #ff4500;
 }
 
-.cell .edit-btn:hover {
+.btn:hover,
+.cell .edit-btn:hover,
+.cell .delete-btn:hover {
   cursor: pointer;
-}
-
-.cell .delete-btn {
-  cursor: pointer;
+  transform: scale(1.05);
 }
