@@ -6,7 +6,7 @@ export const Navbar = (props) => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/"><h2>Fitness Tracker</h2></Link>
+        <Link to="/homepage"><h2>Fitness Tracker</h2></Link>
       </div>
       <div className="navbar-links">
         <Link to="/signup"><h4>Sign Up</h4></Link>

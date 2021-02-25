@@ -1,5 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { ADD_MEAL } from "../store/actions/actionTypes";
 import "../styles/MealForm.css";
 
 class MealForm extends React.Component {
@@ -7,11 +9,9 @@ class MealForm extends React.Component {
     super(props);
     this.state = {
       name: "",
-      numServings: 0,
-      calories: 0
+      numServings: "0",
+      calories: "0"
     }
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = (event) => {
@@ -20,7 +20,7 @@ class MealForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    this.props.addMeal(this.state);
   }
 
   render() {
@@ -46,12 +46,18 @@ class MealForm extends React.Component {
               value={ this.state.calories } 
               onChange={ this.handleChange } />
           </div>
-          <Link to="/"><input className="meal-form-submit" type="submit" value="Add Meal" /></Link>
-          <Link to="/"><button className="meal-form-cancel">Cancel</button></Link>
+          <input className="meal-form-submit" type="submit" value="Add Meal" />
+          <Link to="/homepage"><button className="meal-form-cancel">Cancel</button></Link>
         </form>
       </div>
     )
   }
 }
 
-export default MealForm;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addMeal: (formData) => dispatch({ type: ADD_MEAL, payload: formData })
+  }
+}
+
+export default connect(null, mapDispatchToProps)(MealForm);

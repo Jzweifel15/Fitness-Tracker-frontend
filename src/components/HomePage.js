@@ -14,11 +14,11 @@ class HomePage extends React.Component {
         <div className="top-row">
           <div className="workout-tracker">
             <h3>Today's Workouts</h3>
-            <WorkoutTable exercises={ this.props.exercises } />
+            <WorkoutTable exercises={ this.props.exercises.exercises } />
           </div>
           <div className="meal-tracker">
             <h3>Today's Meals</h3>
-            <MealTable meals={ this.props.meals } />
+            <MealTable meals={ this.props.meals.meals } />
           </div>
         </div>
         <h3 className="bottom-row-label">Your Body Mass Index</h3>
@@ -42,7 +42,6 @@ const mapStateToProps = (state) => {
     user: state.user,
     exercises: state.exercises,
     meals: state.meals,
-    bmi: state.bmi
   }
 }
 

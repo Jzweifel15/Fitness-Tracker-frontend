@@ -1,15 +1,15 @@
 import React from "react";
+import { connect } from "react-redux";
+import { EDIT_BMI } from "../store/actions/actionTypes";
 import "../styles/BMIForm.css";
 
 class BMIForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      height: 0,
-      weight: 0
+      height: this.props.height,
+      weight: this.props.weight
     }
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = (event) => {
@@ -18,23 +18,24 @@ class BMIForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    
+    console.log(this.props.editBMI(this.state));
+    this.props.editBMI(this.state);
   }
 
   render() {
     return (
       <div>
-        <form className="bmi-form">
+        <form className="bmi-form" onSubmit={ this.handleSubmit }>
           <div className="bmi-form-control">
             <label>Height (in.)</label>
             <input type="text" name="height" 
-              value={ this.props.height }
+              value={ this.state.height }
               onChange={ this.handleChange } />
           </div>
           <div className="bmi-form-control">
             <label>Weight (lbs.)</label>
-            <input type="text" name="height" 
-              value={ this.props.weight } 
+            <input type="text" name="weight" 
+              value={ this.state.weight } 
               onChange={ this.handleChange } />
           </div>
           <input type="submit" value="Calculate" />
@@ -44,4 +45,10 @@ class BMIForm extends React.Component {
   }
 }
 
-export default BMIForm;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    editBMI: (formData) => dispatch({ type: EDIT_BMI, payload: formData })
+  }
+}
+
+export default connect(null, mapDispatchToProps)(BMIForm);

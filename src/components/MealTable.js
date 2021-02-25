@@ -1,5 +1,5 @@
 import React from "react";
-import { Meal } from "./Meal";
+import Meal from "./Meal";
 import { Link } from "react-router-dom";
 import "../styles/MealTable.css";
 
@@ -23,7 +23,8 @@ class MealTable extends React.Component {
           </div>
           {
             this.props.meals.map(meal => 
-              <Meal key={ meal.name } meal={ meal.name }
+              <Meal key={ meal.id } id={ meal.id }
+                name={ meal.name }
                 numServings={ meal.numServings } 
                 calories={ meal.calories } />
             )

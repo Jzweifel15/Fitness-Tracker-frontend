@@ -15,14 +15,14 @@ class App extends React.Component {
         <Router>
           <Navbar />
           <Switch>
-            <Route path="/signup" component={ SignUpForm } />
             <Route path="/signin" component={ SignInForm } />
-            <Route path="/" exact={ true } component={ HomePage } />
+            <Route path="/signup" component={ SignUpForm } />
+            <Route path="/homepage" component={ HomePage } />
             <Route path="/new/exercise" exact={ true } component={ ExerciseForm } />
             <Route path="/new/meal" exact={ true } component={ MealForm } />
             <Redirect from="/new/exericse" to="/" />
             <Redirect from="/new/meal" to="/" />
-            {/* <Redirect from="*" to="/" /> */}
+            <Redirect from="/" to="/signin" />
           </Switch>
         </Router>
       </div>

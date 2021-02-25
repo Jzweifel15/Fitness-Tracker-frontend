@@ -1,13 +1,11 @@
 import { combineReducers } from "redux";
 import { exerciseReducer } from "./exerciseReducer";
 import { mealReducer } from "./mealReducer";
-import { bmiReducer } from "./bmiReducer";
 import { userReducer } from "./userReducer";
 
 export const rootReducer = combineReducers({
   exercises: exerciseReducer,
   meals: mealReducer,
-  bmi: bmiReducer,
   user: userReducer
 })
 

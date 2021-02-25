@@ -29,6 +29,10 @@
   margin-bottom: 10px;
 }
 
+.bmi-form-control input[type="text"] {
+  padding-left: 5px;
+}
+
 .bmi-form input[type="submit"] {
   border: 1px solid #00c2ff;
   border-radius: 5px;

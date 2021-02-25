@@ -1,17 +1,17 @@
 import React from "react";
-import "../styles/ExerciseForm.css";
 import { Link } from "react-router-dom";
+import { ADD_EXERCISE } from "../store/actions/actionTypes";
+import { connect } from "react-redux";
+import "../styles/ExerciseForm.css";
 
 class ExerciseForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
-      numSets: 0,
-      numReps: 0
+      numSets: "0",
+      numReps: "0"
     }
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = (event) => {
@@ -20,7 +20,7 @@ class ExerciseForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    this.props.addExercise(this.state);
   }
 
   render() {
@@ -46,14 +46,18 @@ class ExerciseForm extends React.Component {
               value={ this.state.numReps } 
               onChange={ this.handleChange } />
           </div>
-          <Link to="/">
-            <input className="exercise-form-submit" type="submit" value="Add Exercise" />
-          </Link>
-          <Link to="/"><button className="exercise-form-cancel">Cancel</button></Link>
+          <input className="exercise-form-submit" type="submit" value="Add Exercise" />
+          <Link to="/homepage"><button className="exercise-form-cancel">Cancel</button></Link>
         </form>
       </div>
     )
   }
 }
 
-export default ExerciseForm;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addExercise: (formData) => dispatch({ type: ADD_EXERCISE, payload: formData })
+  }
+}
+
+export default connect(null, mapDispatchToProps)(ExerciseForm);

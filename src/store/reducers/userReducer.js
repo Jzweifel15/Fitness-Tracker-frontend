@@ -1,9 +1,9 @@
-import { CREATE_ACCOUNT, FIND_ACCOUNT } from "../actions/actionTypes";
+import { CREATE_ACCOUNT, FIND_ACCOUNT, EDIT_BMI } from "../actions/actionTypes";
 
 const initialState = {
   name: "Gabriella Glass",
-  weight: 145,
-  height: 68,
+  weight: "145",
+  height: "68",
   gender: "Female",
   email: "gabriella.g@email.com"
 }
@@ -16,6 +16,12 @@ export function userReducer(state = initialState, action) {
     case FIND_ACCOUNT:
       // find a user's account upon signing in
       return state;
+    case EDIT_BMI:
+      return {
+        ...state,
+        weight: action.payload.weight,
+        height: action.payload.height
+      }
     default: 
       return state;
   }

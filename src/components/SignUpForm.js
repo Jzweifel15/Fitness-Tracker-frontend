@@ -1,31 +1,29 @@
 import React from "react";
 import { connect } from "react-redux";
+import { CREATE_ACCOUNT } from "../store/actions/actionTypes";
 import "../styles/SignUpForm.css";
 
 class SignUpForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      weight: "",
+      height: "",
+      gender: "",
+      email: ""
+    }
+  }
+
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  }
 
   handleSubmit = (event) => {
     event.preventDefault();
-  }
-
-  handleNameChange = (event) => {
-    // this.props.name = event.target.value;
-  }
-
-  handleWeightChange = (event) => {
-    // this.props.weight = event.target.value;
-  }
-
-  handleHeightChange = (event) => {
-    // this.props.height = event.target.value;
-  }
-
-  handleGenderChange = (event) => {
-    // this.props.gender = event.target.value;
-  }
-
-  handleEmailChange = (event) => {
-    // this.props.email = event.target.value;
+    alert("Your account has successfully been created");
+    console.log(this.props.createAccount(this.state));
+    this.props.createAccount(this.state);
   }
 
   render() {
@@ -36,27 +34,27 @@ class SignUpForm extends React.Component {
           <div className="form-control">
             <label className="input-label">Name</label>
             <input type="text" name="name" 
-              value={ this.props.name } onChange={ this.handleNameChange } />
+              value={ this.state.name } onChange={ this.handleChange } />
           </div>
           <div className="form-control">
             <label className="input-label">Weight (in lbs.)</label>
             <input type="text" name="weight" 
-              value={ this.props.weight } onChange={ this.handleWeightChange } />
+              value={ this.state.weight } onChange={ this.handleChange } />
           </div>
           <div className="form-control">
             <label className="input-label">Height (in ft.)</label>
             <input type="text" name="height" 
-              value={ this.props.height } onChange={ this.handleHeightChange } />
+              value={ this.state.height } onChange={ this.handleChange } />
           </div>
           <div className="form-control">
             <label className="input-label">Gender</label>
             <input type="text" name="gender" 
-              value={ this.props.gender } onChange={ this.handleGenderChange } />
+              value={ this.state.gender } onChange={ this.handleChange } />
           </div>
           <div className="form-control">
             <label className="input-label">Email</label>
             <input type="email" name="email" 
-              value={ this.props.email } onChange={ this.handleEmailChange } />
+              value={ this.state.email } onChange={ this.handleChange } />
           </div>
           <input type="submit" value="Create Account" />
         </form>
@@ -65,30 +63,13 @@ class SignUpForm extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user
-  }
-}
-
 const mapDispatchToProps = (dispatch) => {
   return {
-    createAccount: (name, weight, height, gender, email) => {
-      dispatch({ 
-        type: "CREATE_ACCOUNT",
-        payload: {
-          name: name,
-          weight: weight,
-          height: height,
-          gender: gender,
-          email: email
-        }
-      })
-    }
+    createAccount: (formData) => dispatch({ type: CREATE_ACCOUNT, payload: formData })
   }
 }
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(SignUpForm);

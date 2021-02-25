@@ -7,8 +7,6 @@ class SignInForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { email: "" }
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = (event) => {
@@ -17,8 +15,8 @@ class SignInForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    alert("An email was submitted: " + this.state.email);
-    this.props.findAccount();
+    console.log(this.props.findAccount(this.state));
+    this.props.findAccount(this.state);
   }
 
   render() {
@@ -29,7 +27,7 @@ class SignInForm extends React.Component {
           <div className="form-control">
             <label className="input-label">Email</label>
             <input type="email" name="email" 
-              value={ this.props.email } onChange={ this.handleChange } />
+              value={ this.state.email } onChange={ this.handleChange } />
           </div>
           <input type="submit" value="Sign In" />
         </form>
@@ -40,7 +38,7 @@ class SignInForm extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    findAccount: (users) => dispatch({ type: FIND_ACCOUNT, payload: users })
+    findAccount: (formData) => dispatch({ type: FIND_ACCOUNT, payload: formData })
   }
 }
 
