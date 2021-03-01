@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { CREATE_ACCOUNT } from "../store/actions/actionTypes";
+import { Link } from "react-router-dom";
 import "../styles/SignUpForm.css";
 
 class SignUpForm extends React.Component {
@@ -28,7 +29,7 @@ class SignUpForm extends React.Component {
 
   render() {
     return (
-      <div className="form-container">
+      <div className="sign-up-form-container">
         <form className="sign-up-form" onSubmit={ this.handleSubmit }>
           <h2>Sign Up</h2>
           <div className="form-control">
@@ -57,6 +58,9 @@ class SignUpForm extends React.Component {
               value={ this.state.email } onChange={ this.handleChange } />
           </div>
           <input type="submit" value="Create Account" />
+          <div className="signin-link">
+            Already a Member? <Link to="/signin">Sign In Here!</Link>
+          </div>
         </form>
       </div>
     )

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { FIND_ACCOUNT } from "../store/actions/actionTypes";
+import { Link } from "react-router-dom";
 import "../styles/SignInForm.css";
 
 class SignInForm extends React.Component {
@@ -21,7 +22,7 @@ class SignInForm extends React.Component {
 
   render() {
     return (
-      <div className="form-container">
+      <div className="sign-in-form-container">
         <form className="sign-in-form" onSubmit={ this.handleSubmit }>
           <h2>Sign In</h2>
           <div className="form-control">
@@ -30,6 +31,9 @@ class SignInForm extends React.Component {
               value={ this.state.email } onChange={ this.handleChange } />
           </div>
           <input type="submit" value="Sign In" />
+          <div className="signup-link">
+            Not Already a Member? <Link to="signup">Sign Up Here!</Link>
+          </div>
         </form>
       </div>
     )
