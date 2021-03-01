@@ -9,8 +9,10 @@ export const Navbar = (props) => {
         <Link to="/homepage"><h2>Fitness Tracker</h2></Link>
       </div>
       <div className="navbar-links">
-        <Link to="/signup"><h4>Sign Up</h4></Link>
-        <Link to="/signin"><h4>Sign In</h4></Link>
+        <Link to="https://github.com/"><i class="fab fa-github"></i></Link>
+        <Link to="https://www.facebook.com/"><i class="fab fa-facebook"></i></Link>
+        <Link to="https://www.twitter.com/"><i class="fab fa-twitter"></i></Link>
+        <Link to="https://www.instagram.com/"><i class="fab fa-instagram"></i></Link>
       </div>
     </nav>
   )
