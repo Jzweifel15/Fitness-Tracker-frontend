@@ -4,14 +4,11 @@ const initialState = {
   meals: []
 }
 
-let ids = 0;
-
 export function mealReducer(state = initialState, action) {
   switch(action.type) {
     case ADD_MEAL:
       // return the state with a new meal added
-      const meal = { id: ids, ...action.payload }
-      ids++;
+      const meal = { ...action.payload }
       return {
         meals: state.meals.concat(meal)
       }
