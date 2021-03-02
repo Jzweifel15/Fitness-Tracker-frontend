@@ -1,4 +1,5 @@
 import { GET_SESSION } from "../session";
+import { ADD_MEAL } from "../actions/actionTypes";
 
 export function createMeal(mealObj) {
   return (dispatch) => {
@@ -26,7 +27,9 @@ export function createMeal(mealObj) {
 
     })
     .then(meal => {
-      console.log(meal);
+
+      dispatch({ type: ADD_MEAL, payload: meal });
+      
     })
   }
 }

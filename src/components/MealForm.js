@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { ADD_MEAL } from "../store/actions/actionTypes";
 import { createMeal } from "../store/actions/createMeal";
 import { GET_SESSION } from "../store/session";
 import "../styles/MealForm.css";
@@ -23,7 +22,6 @@ class MealForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.addMeal(this.state);
-    this.props.createMeal(this.state);
   }
 
   render() {
@@ -62,8 +60,7 @@ class MealForm extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addMeal: (formData) => dispatch({ type: ADD_MEAL, payload: formData }),
-    createMeal: (mealData) => dispatch(createMeal(mealData))
+    addMeal: (formData) => dispatch(createMeal(formData))
   }
 }
 

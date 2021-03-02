@@ -27,7 +27,9 @@ export function createExercise(exerciseObj) {
 
     })
     .then(exercise => {
-      console.log(exercise);
+      
+      dispatch({ type: ADD_EXERCISE, payload: exercise });
+
     })
   }
 }

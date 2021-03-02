@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ADD_EXERCISE } from "../store/actions/actionTypes";
 import { connect } from "react-redux";
 import { createExercise } from "../store/actions/createExercise";
 import { GET_SESSION } from "../store/session";
@@ -23,7 +22,6 @@ class ExerciseForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.addExercise(this.state);
-    this.props.createExercise(this.state);
   }
 
   render() {
@@ -62,8 +60,7 @@ class ExerciseForm extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addExercise: (formData) => dispatch({ type: ADD_EXERCISE, payload: formData }),
-    createExercise: (exerciseData) => dispatch(createExercise(exerciseData))
+    addExercise: (formData) => dispatch(createExercise(formData))
   }
 }
 
