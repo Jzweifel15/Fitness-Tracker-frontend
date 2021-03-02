@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { CREATE_ACCOUNT } from "../store/actions/actionTypes";
 import { Link } from "react-router-dom";
+import { createUser } from "../store/actions/createUser";
 import "../styles/SignUpForm.css";
 
 class SignUpForm extends React.Component {
@@ -22,9 +22,7 @@ class SignUpForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    alert("Your account has successfully been created");
-    console.log(this.props.createAccount(this.state));
-    this.props.createAccount(this.state);
+    this.props.createUser(this.state);
   }
 
   render() {
@@ -69,7 +67,7 @@ class SignUpForm extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createAccount: (formData) => dispatch({ type: CREATE_ACCOUNT, payload: formData })
+    createUser: (userData) => dispatch(createUser(userData))
   }
 }
 

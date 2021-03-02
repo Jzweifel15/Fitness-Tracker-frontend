@@ -4,7 +4,14 @@ import { ADD_EXERCISE, ADD_MEAL, FIND_ACCOUNT } from "./actionTypes";
 export function fetchUser(email) {
   return (dispatch) => {
     fetch("http://localhost:3000/users")
-    .then(resp => resp.json())
+    .then(resp => {
+      if (resp.ok) {
+        return resp.json();
+      }
+      else {
+        return resp.text().then(error => Promise.reject(error));
+      }
+    })
     .then(users => {
       let user;
 
@@ -37,20 +44,3 @@ export function fetchUser(email) {
     })
   }
 }
-
-// export function fetchUser(email) {
-//   return fetch("http://localhost:3000/users")
-//     .then(resp => resp.json())
-//     .then(users => {
-//       let user;
-
-//       for (let i = 0; i < users.data.length; i ++) {
-//         if (users.data[i].attributes.email === email) {
-//           user = users.data[i].attributes;
-//         }
-//       }
-
-//       console.log(user);
-
-//     })
-// }
