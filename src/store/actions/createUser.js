@@ -17,15 +17,16 @@ export function createUser(userObj) {
       })
     })
     .then(resp => {
+
       if (resp.ok) {
         return resp.json();
       }
       else {
         return resp.text().then(error => Promise.reject(error));
       }
+      
     })
     .then(user => {
-      console.log(user);
 
       dispatch({
         type: FIND_ACCOUNT,
@@ -37,6 +38,7 @@ export function createUser(userObj) {
           email: user.data.attributes.email
         }
       })
+
     })
   }
 }

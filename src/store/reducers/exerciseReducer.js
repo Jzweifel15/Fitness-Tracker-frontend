@@ -4,14 +4,11 @@ const initialState = {
   exercises: []
 }
 
-let ids = 1;
-
 export function exerciseReducer(state = initialState, action) {
   switch(action.type) {
     case ADD_EXERCISE:
       // return the state with a new exercise added to the original state
-      const exercise = { id: ids, ...action.payload }
-      ids++;
+      const exercise = { ...action.payload }
       return {
         // exercises: [...state.exercises, action.payload]
         exercises: state.exercises.concat(exercise)

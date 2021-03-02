@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { fetchUser } from "../store/actions/fetchUser";
 import { connect } from "react-redux";
 import "../styles/SignInForm.css";
@@ -18,7 +18,6 @@ class SignInForm extends React.Component {
     event.preventDefault();
     if (this.state.email !== "") {
       this.props.fetchUser(this.state.email);
-      return <Redirect to="/homepage" />
     }
   }
 

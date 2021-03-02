@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ADD_EXERCISE } from "../store/actions/actionTypes";
 import { connect } from "react-redux";
+import { createExercise } from "../store/actions/createExercise";
+import { GET_SESSION } from "../store/session";
 import "../styles/ExerciseForm.css";
 
 class ExerciseForm extends React.Component {
@@ -21,9 +23,13 @@ class ExerciseForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.addExercise(this.state);
+    this.props.createExercise(this.state);
   }
 
   render() {
+
+    console.log(GET_SESSION());
+
     return (
       <div className="exercise-form-container">
         <h2>Add New Exercise</h2>
@@ -56,7 +62,8 @@ class ExerciseForm extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addExercise: (formData) => dispatch({ type: ADD_EXERCISE, payload: formData })
+    addExercise: (formData) => dispatch({ type: ADD_EXERCISE, payload: formData }),
+    createExercise: (exerciseData) => dispatch(createExercise(exerciseData))
   }
 }
 

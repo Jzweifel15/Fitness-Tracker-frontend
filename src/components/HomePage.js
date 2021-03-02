@@ -3,10 +3,13 @@ import WorkoutTable from "./WorkoutTable";
 import MealTable from "./MealTable";
 import BMIContainer from "./BMIContainer";
 import { connect } from "react-redux";
+import { GET_SESSION } from "../store/session";
 import "../styles/HomePage.css";
 
 class HomePage extends React.Component {
   render() {
+
+    console.log(GET_SESSION());
 
     return (
       <div className="homepage-container">
