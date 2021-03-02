@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { EDIT_EXERCISE, REMOVE_EXERCISE } from "../store/actions/actionTypes";
+import { EDIT_EXERCISE } from "../store/actions/actionTypes";
+import { removeExercise } from "../store/actions/removeExercise";
+import { GET_SESSION } from "../store/session";
 
 class Workout extends React.Component {
 
@@ -29,8 +31,11 @@ class Workout extends React.Component {
         </div>
         <div className="cell">
           <div className="delete-btn" 
-            onClick={ () => this.props.removeExercise({ id: id, exercise: exercise, numSets: numSets, numReps: numReps }) }>
-              Delete
+            onClick={ () => this.props.removeExercise({ 
+              id: id, exercise: exercise, 
+              numSets: numSets, numReps: numReps, 
+              user_id: parseInt(GET_SESSION()) }) }>
+                Delete
           </div>
         </div>
       </div>
@@ -41,7 +46,7 @@ class Workout extends React.Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     editExercise: (exercise) => dispatch({ type: EDIT_EXERCISE, payload: exercise }),
-    removeExercise: (exercise) => dispatch({ type: REMOVE_EXERCISE, payload: exercise })
+    removeExercise: (exercise) => dispatch(removeExercise(exercise))
   }
 }
 
