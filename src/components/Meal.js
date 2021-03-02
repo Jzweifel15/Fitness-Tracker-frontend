@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { EDIT_MEAL, REMOVE_MEAL } from "../store/actions/actionTypes";
+import { EDIT_MEAL } from "../store/actions/actionTypes";
+import { removeMeal } from "../store/actions/removeMeal";
+import { GET_SESSION } from "../store/session";
 
 class Meal extends React.Component {
 
@@ -26,8 +28,11 @@ class Meal extends React.Component {
         </div>
         <div className="cell">
           <div className="delete-btn"
-            onClick={ () => this.props.removeMeal({ id: id, name: name, numServings: numServings, calories: calories }) }>
-              Delete
+            onClick={ () => this.props.removeMeal({ 
+              id: id, name: name, 
+              numServings: numServings, calories: calories,
+              user_id: parseInt(GET_SESSION()) }) }>
+                Delete
           </div>
         </div>
       </div>
@@ -38,7 +43,7 @@ class Meal extends React.Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     editMeal: (meal) => dispatch({ type: EDIT_MEAL, payload: meal }),
-    removeMeal: (meal) => dispatch({ type: REMOVE_MEAL, payload: meal })
+    removeMeal: (meal) => dispatch(removeMeal(meal))
   }
 }
 
