@@ -2,12 +2,12 @@ import React from "react";
 import WorkoutTable from "./WorkoutTable";
 import MealTable from "./MealTable";
 import BMIContainer from "./BMIContainer";
-// import { data } from "../store/data";
 import { connect } from "react-redux";
 import "../styles/HomePage.css";
 
 class HomePage extends React.Component {
   render() {
+
     return (
       <div className="homepage-container">
         <h1>Welcome Back, { this.props.user.name }</h1>

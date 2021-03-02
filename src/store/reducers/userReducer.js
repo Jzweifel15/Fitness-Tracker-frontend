@@ -1,11 +1,11 @@
 import { CREATE_ACCOUNT, FIND_ACCOUNT, EDIT_BMI } from "../actions/actionTypes";
 
 const initialState = {
-  name: "Gabriella Glass",
-  weight: "145",
-  height: "68",
-  gender: "Female",
-  email: "gabriella.g@email.com"
+  name: "",
+  weight: "",
+  height: "",
+  gender: "",
+  email: ""
 }
 
 export function userReducer(state = initialState, action) {
@@ -15,7 +15,9 @@ export function userReducer(state = initialState, action) {
       return state;
     case FIND_ACCOUNT:
       // find a user's account upon signing in
-      return state;
+      return {
+        ...action.payload
+      }
     case EDIT_BMI:
       return {
         ...state,

@@ -1,23 +1,10 @@
 import { ADD_EXERCISE, EDIT_EXERCISE, REMOVE_EXERCISE } from "../actions/actionTypes";
 
 const initialState = {
-  exercises: [
-    {
-      id: 1,
-      name: "Squats",
-      numSets: "7",
-      numReps: "20"
-    },
-    {
-      id: 2,
-      name: "Crunches",
-      numSets: "7",
-      numReps: "20"
-    }
-  ]
+  exercises: []
 }
 
-let ids = 3;
+let ids = 1;
 
 export function exerciseReducer(state = initialState, action) {
   switch(action.type) {

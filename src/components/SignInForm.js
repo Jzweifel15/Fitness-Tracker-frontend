@@ -1,7 +1,7 @@
 import React from "react";
+import { Link, Redirect } from "react-router-dom";
+import { fetchUser } from "../store/actions/fetchUser";
 import { connect } from "react-redux";
-import { FIND_ACCOUNT } from "../store/actions/actionTypes";
-import { Link } from "react-router-dom";
 import "../styles/SignInForm.css";
 
 class SignInForm extends React.Component {
@@ -16,8 +16,10 @@ class SignInForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.props.findAccount(this.state));
-    this.props.findAccount(this.state);
+    if (this.state.email !== "") {
+      this.props.fetchUser(this.state.email);
+      return <Redirect to="/homepage" />
+    }
   }
 
   render() {
@@ -30,7 +32,7 @@ class SignInForm extends React.Component {
             <input type="email" name="email" 
               value={ this.state.email } onChange={ this.handleChange } />
           </div>
-          <input type="submit" value="Sign In" />
+          <input type="submit" value="Create Account" />
           <div className="signup-link">
             Not Already a Member? <Link to="signup">Sign Up Here!</Link>
           </div>
@@ -42,7 +44,7 @@ class SignInForm extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    findAccount: (formData) => dispatch({ type: FIND_ACCOUNT, payload: formData })
+    fetchUser: (email) => dispatch(fetchUser(email))
   }
 }
 

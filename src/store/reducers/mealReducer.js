@@ -1,23 +1,10 @@
 import { ADD_MEAL, EDIT_MEAL, REMOVE_MEAL } from "../actions/actionTypes";
 
 const initialState = {
-  meals: [
-    {
-      id: 1,
-      name: "Fish and Rice",
-      numServings: "1",
-      calories: "375"
-    },
-    {
-      id: 2,
-      name: "Three Cheese Lasagna",
-      numServings: "1",
-      calories: "525"
-    }
-  ]
+  meals: []
 }
 
-let ids = 3;
+let ids = 0;
 
 export function mealReducer(state = initialState, action) {
   switch(action.type) {
