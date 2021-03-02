@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { EDIT_EXERCISE } from "../store/actions/actionTypes";
 import { removeExercise } from "../store/actions/removeExercise";
 import { GET_SESSION } from "../store/session";
 
@@ -27,9 +26,6 @@ class Workout extends React.Component {
           <input type="checkbox" />
         </div>
         <div className="cell">
-          <div className="edit-btn">Edit</div>
-        </div>
-        <div className="cell">
           <div className="delete-btn" 
             onClick={ () => this.props.removeExercise({ 
               id: id, exercise: exercise, 
@@ -45,7 +41,6 @@ class Workout extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    editExercise: (exercise) => dispatch({ type: EDIT_EXERCISE, payload: exercise }),
     removeExercise: (exercise) => dispatch(removeExercise(exercise))
   }
 }

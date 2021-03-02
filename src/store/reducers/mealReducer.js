@@ -1,4 +1,4 @@
-import { ADD_MEAL, EDIT_MEAL, REMOVE_MEAL } from "../actions/actionTypes";
+import { ADD_MEAL, REMOVE_MEAL } from "../actions/actionTypes";
 
 const initialState = {
   meals: []
@@ -12,9 +12,6 @@ export function mealReducer(state = initialState, action) {
       return {
         meals: state.meals.concat(meal)
       }
-    case EDIT_MEAL:
-      // return the original state with an updated meal
-      return state;
     case REMOVE_MEAL:
       // return the state where a meal has been removed
       return {
