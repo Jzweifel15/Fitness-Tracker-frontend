@@ -23,6 +23,7 @@ class SignUpForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.createUser(this.state);
+    this.props.history.push("/homepage");
   }
 
   render() {

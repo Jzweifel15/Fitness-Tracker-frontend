@@ -29,22 +29,12 @@ a {
 i {
   color: #fff;
   font-size: 2.5rem;
-  margin-right: 10px;
+  margin-right: 15px;
   margin-left: 10px;
   transition: 1.5s ease;
 }
 
-.navbar-links .sign-out-link {
-  margin-top: 5px;
-  margin-right: 10px;
-  margin-left: 10px;
-  font-size: 1.5rem;
-  font-weight: 700;
-  transition: 1.5s ease;
-}
-
-i:hover,
-.navbar-links .sign-out-link:hover
+i:hover
 {
   color: #00c2ff;
   background-position: 500% 100%;

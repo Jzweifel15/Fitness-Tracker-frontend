@@ -1,4 +1,5 @@
 import { FIND_ACCOUNT } from "./actionTypes";
+import { SET_SESSION } from "../session";
 
 export function createUser(userObj) {
   return (dispatch) => {
@@ -28,9 +29,14 @@ export function createUser(userObj) {
     })
     .then(user => {
 
+      console.log(user);
+
+      SET_SESSION(user.data.id);
+
       dispatch({
         type: FIND_ACCOUNT,
         payload: {
+          id: user.data.id,
           name: user.data.attributes.name,
           weight: user.data.attributes.weight.toString(),
           height: user.data.attributes.height.toString(),

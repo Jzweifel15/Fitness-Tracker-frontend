@@ -18,7 +18,6 @@ class BMIForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.props.editBMI(this.state));
     this.props.editBMI(this.state);
   }
 
