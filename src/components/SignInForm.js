@@ -18,6 +18,7 @@ class SignInForm extends React.Component {
     event.preventDefault();
     if (this.state.email !== "") {
       this.props.fetchUser(this.state.email);
+      this.props.history.push("/homepage");
     }
   }
 

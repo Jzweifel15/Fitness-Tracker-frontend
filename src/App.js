@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import SignInForm from "./components/SignInForm";
 import SignUpForm from "./components/SignUpForm";
@@ -21,8 +21,8 @@ class App extends React.Component {
             <Route path="/homepage" component={ HomePage } />
             <Route path="/new/exercise" exact={ true } component={ ExerciseForm } />
             <Route path="/new/meal" exact={ true } component={ MealForm } />
-            <Redirect from="/new/exericse" to="/" />
-            <Redirect from="/new/meal" to="/" />
+            <Redirect from="/new/exericse" to="/homepage" />
+            <Redirect from="/new/meal" to="/homepage" />
             <Redirect from="/" to="/signin" />
           </Switch>
         </Router>

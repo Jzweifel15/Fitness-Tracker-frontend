@@ -1,0 +1,25 @@
+.hamburger-icon-container {
+  width: 40px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: 1.5s ease;
+}
+
+.icon-top,
+.icon-middle,
+.icon-bottom {
+  width: 100%;
+  height: 5px;
+  margin: 6px 0;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: 1.5s ease;
+}
+
+.icon-top:hover,
+.icon-middle:hover,
+.icon-bottom:hover {
+  background-color: #00c2ff;
+  background-position: 500% 100%;
+  filter: hue-rotate(20deg);
+}

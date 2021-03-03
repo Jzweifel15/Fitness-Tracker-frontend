@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { createExercise } from "../store/actions/createExercise";
-import { GET_SESSION } from "../store/session";
 import "../styles/ExerciseForm.css";
 
 class ExerciseForm extends React.Component {
@@ -22,12 +21,10 @@ class ExerciseForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.addExercise(this.state);
+    this.props.history.push("/homepage");
   }
 
   render() {
-
-    console.log(GET_SESSION());
-
     return (
       <div className="exercise-form-container">
         <h2>Add New Exercise</h2>
