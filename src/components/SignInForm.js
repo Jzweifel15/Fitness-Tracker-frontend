@@ -32,7 +32,7 @@ class SignInForm extends React.Component {
             <input type="email" name="email" 
               value={ this.state.email } onChange={ this.handleChange } />
           </div>
-          <input type="submit" value="Create Account" />
+          <input type="submit" value="Login" />
           <div className="signup-link">
             Not Already a Member? <Link to="signup">Sign Up Here!</Link>
           </div>

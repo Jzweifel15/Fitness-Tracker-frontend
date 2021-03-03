@@ -1,9 +1,9 @@
 import React from "react";
-import Workout from "./Workout";
+import Exercise from "./Exercise";
 import { Link } from "react-router-dom";
 import "../styles/WorkoutTable.css";
 
-class WorkoutTable extends React.Component {
+class ExerciseTable extends React.Component {
 
   render() {
     return (
@@ -27,7 +27,7 @@ class WorkoutTable extends React.Component {
           </div>
           {
             this.props.exercises.map(exercise => 
-              <Workout key={ exercise.id } id={ exercise.id }
+              <Exercise key={ exercise.id } id={ exercise.id }
                 exercise={ exercise.name }
                 numSets={ exercise.numSets } 
                 numReps={ exercise.numReps } />
@@ -42,4 +42,4 @@ class WorkoutTable extends React.Component {
   }
 }
 
-export default WorkoutTable;
+export default ExerciseTable;

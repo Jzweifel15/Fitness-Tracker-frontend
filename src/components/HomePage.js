@@ -1,5 +1,5 @@
 import React from "react";
-import WorkoutTable from "./WorkoutTable";
+import ExerciseTable from "./ExerciseTable";
 import MealTable from "./MealTable";
 import BMIContainer from "./BMIContainer";
 import { connect } from "react-redux";
@@ -17,7 +17,7 @@ class HomePage extends React.Component {
         <div className="top-row">
           <div className="workout-tracker">
             <h3>Today's Workouts</h3>
-            <WorkoutTable exercises={ this.props.exercises.exercises } />
+            <ExerciseTable exercises={ this.props.exercises.exercises } />
           </div>
           <div className="meal-tracker">
             <h3>Today's Meals</h3>

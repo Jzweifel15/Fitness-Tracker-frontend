@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { removeExercise } from "../store/actions/removeExercise";
 import { GET_SESSION } from "../store/session";
 
-class Workout extends React.Component {
+class Exercise extends React.Component {
 
   render() {
     const id = this.props.id;
@@ -45,4 +45,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Workout);
+export default connect(null, mapDispatchToProps)(Exercise);
