@@ -25,6 +25,7 @@ class BMIForm extends React.Component {
     return (
       <div>
         <form className="bmi-form" onSubmit={ this.handleSubmit }>
+          <h3>Calculator</h3>
           <div className="bmi-form-control">
             <label>Height (in.)</label>
             <input type="text" name="height" 
