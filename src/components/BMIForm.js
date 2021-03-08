@@ -38,6 +38,7 @@ class BMIForm extends React.Component {
               onChange={ this.handleChange } />
           </div>
           <input type="submit" value="Calculate" />
+          <button className="save-btn">Save</button>
         </form>
       </div>
     )
