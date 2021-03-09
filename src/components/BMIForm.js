@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { EDIT_BMI } from "../store/actions/actionTypes";
-import "../styles/BMIForm.css";
 
 class BMIForm extends React.Component {
   constructor(props) {

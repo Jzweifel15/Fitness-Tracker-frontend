@@ -1,5 +1,12 @@
+.calculator-container .bmi {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 10px 0;
+}
+
 .bmi-form {
-  width: 550px;
+  width: 600px;
   height: 340px;
   color: #000;
   background: #f6f6f6;
@@ -21,7 +28,7 @@
 .bmi-form-control label {
   font-size: 1.25rem;
   margin-top: 25px;
-  margin-left: 60px;
+  margin-left: 75px;
 }
 
 .bmi-form-control input {
@@ -50,7 +57,7 @@
   text-align: center;
   font-size: 1rem;
   margin-top: 30px;
-  margin-left: 150px;
+  margin-left: 175px;
 }
 
 .bmi-form input[type="submit"]:hover,

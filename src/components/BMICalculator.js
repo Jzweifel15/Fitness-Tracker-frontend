@@ -1,11 +1,11 @@
 import React from "react";
 import BMIForm from "./BMIForm";
-import "../styles/BMIContainer.css";
+import "../styles/BMICalculator.css";
 
-class BMIContainer extends React.Component {
+class BMICalculator extends React.Component {
   render() {
     return (
-      <div className="bmi-container">
+      <div className="calculator-container">
         <div>
           <BMIForm height={ this.props.height } weight={ this.props.weight } />
         </div>
@@ -17,4 +17,4 @@ class BMIContainer extends React.Component {
   }
 }
 
-export default BMIContainer;
+export default BMICalculator;

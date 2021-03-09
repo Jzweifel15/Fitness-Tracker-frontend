@@ -1,0 +1,6 @@
+.line-chart-container {
+  width: 600px;
+  height: 340px;
+  background: #f6f6f6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
