@@ -5,7 +5,6 @@ import "../styles/LineChartContainer.css";
 class LineChartContainer extends React.Component {
 
   render() {
-
     const bmiData = this.props.bmis.map(bmiObj => bmiObj.bmi);
     const datesData = this.props.bmis.map(bmiObj => {
       let day = bmiObj.created_at.slice(8, 10);

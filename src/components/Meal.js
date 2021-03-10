@@ -6,10 +6,8 @@ import { GET_SESSION } from "../store/session";
 class Meal extends React.Component {
 
   render() {
-    const id = this.props.id;
-    const name = this.props.name;
-    const numServings = this.props.numServings;
-    const calories = this.props.calories;
+    const { id, name, numServings, calories } = this.props;
+
 
     return (
       <div className="row">

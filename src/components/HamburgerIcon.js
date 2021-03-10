@@ -1,6 +1,6 @@
 import React from "react";
 
-export const HamburgerIcon = (props) => {
+export const HamburgerIcon = () => {
   return (
     <div>
       <div className="icon-top"></div>

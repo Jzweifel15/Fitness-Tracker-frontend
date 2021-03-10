@@ -1,7 +1,7 @@
 import React from "react";
-import ExerciseTable from "./ExerciseTable";
+import { ExerciseTable } from "./ExerciseTable";
 import MealTable from "./MealTable";
-import BMICalculator from "./BMICalculator";
+import { BMICalculator } from "./BMICalculator";
 import LineChartContainer from "./LineChartContainer";
 import { connect } from "react-redux";
 import "../styles/HomePage.css";

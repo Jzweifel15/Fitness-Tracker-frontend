@@ -6,10 +6,7 @@ import { GET_SESSION } from "../store/session";
 class Exercise extends React.Component {
 
   render() {
-    const id = this.props.id;
-    const exercise = this.props.exercise;
-    const numSets = this.props.numSets;
-    const numReps = this.props.numReps;
+    const { id, exercise, numSets, numReps } = this.props;
 
     return (
       <div className="row">
