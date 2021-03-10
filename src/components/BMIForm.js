@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { EDIT_BMI } from "../store/actions/actionTypes";
+import { CALCULATE_BMI } from "../store/actions/actionTypes";
+import { saveNewBMI } from "../store/actions/saveNewBMI";
 
 class BMIForm extends React.Component {
   constructor(props) {
@@ -17,7 +18,11 @@ class BMIForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.editBMI(this.state);
+    this.props.calculateBMI(this.state);
+  }
+
+  handleSaveButtonClick = () => {
+    this.props.saveBMI(this.state.weight, this.state.height)
   }
 
   render() {
@@ -38,7 +43,10 @@ class BMIForm extends React.Component {
               onChange={ this.handleChange } />
           </div>
           <input type="submit" value="Calculate" />
-          <button className="save-btn">Save</button>
+          <button className="save-btn"
+            onClick={this.handleSaveButtonClick}>
+              Save
+          </button>
         </form>
       </div>
     )
@@ -47,7 +55,8 @@ class BMIForm extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    editBMI: (formData) => dispatch({ type: EDIT_BMI, payload: formData })
+    calculateBMI: (formData) => dispatch({ type: CALCULATE_BMI, payload: formData }),
+    saveBMI: (newWeight, newHeight) => dispatch(saveNewBMI(newWeight, newHeight)) 
   }
 }
 

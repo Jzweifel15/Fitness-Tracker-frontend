@@ -1,4 +1,4 @@
-import { FIND_ACCOUNT } from "./actionTypes";
+import { FIND_ACCOUNT, SAVE_BMI } from "./actionTypes";
 import { SET_SESSION } from "../session";
 
 export function createUser(userObj) {
@@ -18,18 +18,14 @@ export function createUser(userObj) {
       })
     })
     .then(resp => {
-
       if (resp.ok) {
         return resp.json();
       }
       else {
         return resp.text().then(error => Promise.reject(error));
       }
-      
     })
     .then(user => {
-
-      console.log(user);
 
       SET_SESSION(user.data.id);
 
@@ -41,10 +37,10 @@ export function createUser(userObj) {
           weight: user.data.attributes.weight.toString(),
           height: user.data.attributes.height.toString(),
           gender: user.data.attributes.gender,
-          email: user.data.attributes.email
+          email: user.data.attributes.email,
+          bmis: []
         }
       })
-
     })
   }
 }

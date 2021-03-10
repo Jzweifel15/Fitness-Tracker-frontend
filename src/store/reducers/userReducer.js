@@ -1,4 +1,4 @@
-import { FIND_ACCOUNT, EDIT_BMI } from "../actions/actionTypes";
+import { FIND_ACCOUNT, CALCULATE_BMI, SAVE_BMI } from "../actions/actionTypes";
 
 const initialState = {
   id: 0,
@@ -6,7 +6,8 @@ const initialState = {
   weight: "",
   height: "",
   gender: "",
-  email: ""
+  email: "",
+  bmis: []
 }
 
 export function userReducer(state = initialState, action) {
@@ -16,7 +17,16 @@ export function userReducer(state = initialState, action) {
       return {
         ...action.payload
       }
-    case EDIT_BMI:
+    case SAVE_BMI:
+      // Saves the newly calculated bmi to the backend and updates the linegraph
+      return {
+        ...state,
+        weight: action.payload.weight,
+        height: action.payload.height,
+        bmis: state.bmis.concat(action.payload)
+      }
+    case CALCULATE_BMI:
+      // Calculates the new bmi, but does not save it to the backend
       return {
         ...state,
         weight: action.payload.weight,

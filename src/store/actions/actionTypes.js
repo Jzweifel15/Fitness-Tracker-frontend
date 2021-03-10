@@ -1,6 +1,8 @@
 export const CREATE_ACCOUNT = " CREATE_ACCOUNT";
 export const FIND_ACCOUNT = "FIND_ACCOUNT";
-export const EDIT_BMI = "EDIT_BMI";
+
+export const SAVE_BMI = "SAVE_BMI";
+export const CALCULATE_BMI = "CALCULATE_BMI";
 
 export const ADD_EXERCISE = "ADD_EXERCISE";
 export const EDIT_EXERCISE = "EDIT_EXERCISE";

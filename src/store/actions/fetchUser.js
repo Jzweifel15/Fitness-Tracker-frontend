@@ -28,7 +28,8 @@ export function fetchUser(email) {
             gender: users.data[i].attributes.gender,
             email: users.data[i].attributes.email,
             exercises: [...users.data[i].attributes.exercises],
-            meals: [...users.data[i].attributes.meals]
+            meals: [...users.data[i].attributes.meals],
+            bmis: [...users.data[i].attributes.body_mass_indices]
           }
         }
       }

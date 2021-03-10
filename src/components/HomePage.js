@@ -4,17 +4,10 @@ import MealTable from "./MealTable";
 import BMICalculator from "./BMICalculator";
 import LineChartContainer from "./LineChartContainer";
 import { connect } from "react-redux";
-import { GET_SESSION } from "../store/session";
 import "../styles/HomePage.css";
 
 class HomePage extends React.Component {
   render() {
-
-    console.log(GET_SESSION());
-
-    const datesData = ["Aug 01", "Sept 01", "Oct 01", "Nov 01", "Dec 01"];
-    const bmiData = [28, 29, 27, 26, 26];
-
     return (
       <div className="homepage-container">
         <h1>Welcome Back, { this.props.user.name }</h1>
@@ -34,7 +27,7 @@ class HomePage extends React.Component {
             <BMICalculator height={ this.props.user.height } weight={ this.props.user.weight } />
           </div>
           <div className="bmi-chart">
-            <LineChartContainer datesData={ datesData } bmiData={ bmiData } />
+            <LineChartContainer bmis={ this.props.user.bmis } />
           </div> 
         </div>
       </div>
@@ -44,9 +37,9 @@ class HomePage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user,
     exercises: state.exercises,
     meals: state.meals,
+    user: state.user
   }
 }
 
