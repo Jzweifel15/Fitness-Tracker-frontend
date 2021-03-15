@@ -1,4 +1,4 @@
-import { FIND_ACCOUNT, SAVE_BMI } from "./actionTypes";
+import { FIND_ACCOUNT } from "./actionTypes";
 import { SET_SESSION } from "../session";
 
 export function createUser(userObj) {
