@@ -16,21 +16,12 @@ export const SignUpForm = (props) => {
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: [event.target.value] })
+    setState({ ...state, [event.target.name]: event.target.value })
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    let newUser = {
-      name: state.name[0],
-      weight: state.weight[0],
-      height: state.height[0],
-      gender: state.gender[0],
-      email: state.email[0]
-    };
-    
-    dispatch(createUser(newUser));
+    dispatch(createUser(state));
     props.history.push("/homepage");
   }
 
