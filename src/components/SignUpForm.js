@@ -1,60 +1,67 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { createUser } from "../store/actions/createUser";
 import "../styles/SignUpForm.css";
 
-class SignUpForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      weight: "",
-      height: "",
-      gender: "",
-      email: ""
-    }
+export const SignUpForm = (props) => {
+
+  const [state, setState] = useState({
+    name: "",
+    weight: "",
+    height: "",
+    gender: "",
+    email: ""
+  });
+  const dispatch = useDispatch();
+
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: [event.target.value] })
   }
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  }
-
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    this.props.createUser(this.state);
-    this.props.history.push("/homepage");
+
+    let newUser = {
+      name: state.name[0],
+      weight: state.weight[0],
+      height: state.height[0],
+      gender: state.gender[0],
+      email: state.email[0]
+    };
+    
+    dispatch(createUser(newUser));
+    props.history.push("/homepage");
   }
 
-  render() {
-    return (
-      <div className="sign-up-form-container">
-        <form className="sign-up-form" onSubmit={ this.handleSubmit }>
+  return (
+    <div className="sign-up-form-container">
+        <form className="sign-up-form" onSubmit={ handleSubmit }>
           <h2>Sign Up</h2>
           <div className="form-control">
             <label className="input-label">Name</label>
             <input type="text" name="name" 
-              value={ this.state.name } onChange={ this.handleChange } />
+              value={ state.name } onChange={ handleChange } />
           </div>
           <div className="form-control">
-            <label className="input-label">Weight (in lbs.)</label>
+            <label className="input-label">Weight (lbs.)</label>
             <input type="text" name="weight" 
-              value={ this.state.weight } onChange={ this.handleChange } />
+              value={ state.weight } onChange={ handleChange } />
           </div>
           <div className="form-control">
-            <label className="input-label">Height (in ft.)</label>
+            <label className="input-label">Height (in.)</label>
             <input type="text" name="height" 
-              value={ this.state.height } onChange={ this.handleChange } />
+              value={ state.height } onChange={ handleChange } />
           </div>
           <div className="form-control">
             <label className="input-label">Gender</label>
             <input type="text" name="gender" 
-              value={ this.state.gender } onChange={ this.handleChange } />
+              value={ state.gender } onChange={ handleChange } />
           </div>
           <div className="form-control">
             <label className="input-label">Email</label>
             <input type="email" name="email" 
-              value={ this.state.email } onChange={ this.handleChange } />
+              value={ state.email } onChange={ handleChange } />
           </div>
           <input type="submit" value="Create Account" />
           <div className="signin-link">
@@ -62,17 +69,5 @@ class SignUpForm extends React.Component {
           </div>
         </form>
       </div>
-    )
-  }
+  );
 }
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    createUser: (userData) => dispatch(createUser(userData))
-  }
-}
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(SignUpForm);

@@ -1,8 +1,8 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import SignInForm from "./components/SignInForm";
-import SignUpForm from "./components/SignUpForm";
+import { SignInForm } from "./components/SignInForm";
+import { SignUpForm } from "./components/SignUpForm";
 import HomePage from "./components/HomePage";
 import ExerciseForm from "./components/ExerciseForm";
 import MealForm from "./components/MealForm";
