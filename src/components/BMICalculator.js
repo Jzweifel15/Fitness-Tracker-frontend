@@ -1,5 +1,5 @@
 import React from "react";
-import BMIForm from "./BMIForm";
+import { BMIForm } from "./BMIForm";
 import "../styles/BMICalculator.css";
 
 export const BMICalculator = (props) => {
