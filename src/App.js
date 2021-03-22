@@ -8,27 +8,23 @@ import { ExerciseForm } from "./components/ExerciseForm";
 import { MealForm } from "./components/MealForm";
 import "./App.css"
 
-class App extends React.Component {
+export const App = () => {
 
-  render() {
-    return (
-      <div>
-        <Router>
-          <Navbar />
-          <Switch>
-            <Route path="/signin" component={ SignInForm } />
-            <Route path="/signup" component={ SignUpForm } />
-            <Route path="/homepage" component={ HomePage } />
-            <Route path="/new/exercise" exact={ true } component={ ExerciseForm } />
-            <Route path="/new/meal" exact={ true } component={ MealForm } />
-            <Redirect from="/new/exericse" to="/homepage" />
-            <Redirect from="/new/meal" to="/homepage" />
-            <Redirect from="/" to="/signin" />
-          </Switch>
-        </Router>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/signin" component={ SignInForm } />
+          <Route path="/signup" component={ SignUpForm } />
+          <Route path="/homepage" component={ HomePage } />
+          <Route path="/new/exercise" exact={ true } component={ ExerciseForm } />
+          <Route path="/new/meal" exact={ true } component={ MealForm } />
+          <Redirect from="/new/exericse" to="/homepage" />
+          <Redirect from="/new/meal" to="/homepage" />
+          <Redirect from="/" to="/signin" />
+        </Switch>
+      </Router>
+    </div>
+  )
 }
-
-export default App;
