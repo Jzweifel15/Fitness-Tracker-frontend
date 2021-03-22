@@ -1,5 +1,6 @@
 import React from "react";
 import { BMIForm } from "./BMIForm";
+import { calculateBMI } from "../helpers/calculateBMI";
 import "../styles/BMICalculator.css";
 
 export const BMICalculator = (props) => {
@@ -9,7 +10,7 @@ export const BMICalculator = (props) => {
         <BMIForm height={ props.height } weight={ props.weight } />
       </div>
       <div className="bmi">
-        BMI = { Math.round((parseInt(props.weight) * 0.454) / ((parseInt(props.height) * 0.0254) ** 2)) }
+        BMI = { calculateBMI(props.weight, props.height) }
       </div>
     </div>
   ) 
