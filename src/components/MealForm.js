@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { dispatch, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { createMeal } from "../store/actions/createMeal";
 import "../styles/MealForm.css";
